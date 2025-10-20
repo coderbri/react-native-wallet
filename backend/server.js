@@ -6,6 +6,15 @@ dotenv.config();
 
 const app = express();
 
+// Built-in middleware to parse incoming JSON payloads
+app.use(express.json());
+
+// Custom middleware to test implementation
+// app.use((req,res,next) => {
+//     console.log(">> Hey! We hit a request! The method is", req.method);
+//     next();  // Pass control to the next middleware or route
+// });
+
 const PORT = process.env.PORT || 5001;
 
 async function initDB() {
@@ -18,21 +27,43 @@ async function initDB() {
             category VARCHAR(255) NOT NULL,
             created_at DATE NOT NULL DEFAULT CURRENT_DATE
         )`;
-        // DECIMAL (10,2)
-        // means: a fixed-point number with:
-        // 10 digits total
-        // 2 digits after the decimal point
-        // so: the max value it can store is 99999999.99 (8 digits before the decimal, 2 after)
         
         console.log("Database initialized successfully!");
     } catch (error) {
         console.log("Error initializing DB", error);
-        process.exit(1) // status code 1 = failure, 0 = success
+        process.exit(1); // status code 1 = failure, 0 = success
     }
 }
 
+// Example route: upon page refresh, the custom middleware created will show.
 app.get("/", (req, res) => {
     res.send("Hello World!");
+});
+
+
+app.post("/api/transactions", async (req, res) => {
+    try {
+        // Extract required fields from the request body
+        const { title, amount, category, user_id } = req.body;
+        
+        // Validate that all required fields are provided
+        if (!title || ! user_id || !category || amount === undefined) {
+            return res.status(400).json({ message: "All fields are required" });
+        }
+        
+        // Insert the new transaction into the database
+        const transaction = await sql`
+            INSERT INTO transactions(user_id,title,amount,category)
+            VALUES(${user_id},${title},${amount},${category})
+            RETURNING *
+        `;
+        
+        console.log(transaction); // Prints an array containing the created transaction object
+        res.status(201).json(transaction[0]);
+    } catch (error) {
+        console.log("Error creating the transaction", error);
+        res.status(500).json({ message: "Internal server error" });
+    }
 });
 
 

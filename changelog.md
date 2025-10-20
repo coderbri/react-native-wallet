@@ -1,5 +1,20 @@
 # React Native Wallet App - Changelog
 
+## v0.4.0 - GET & DELETE Routes
+**Release Date**: October 20, 2025
+
+### Summary
+- Implemented the `GET /api/transactions/:userId` route to retrieve all transactions belonging to a specific user.  
+- Integrated SQL query logic to return transactions ordered by `created_at` in descending order (most recent first).  
+- Added structured error handling for failed database retrieval attempts.  
+- Tested with Postman to confirm correct behavior when querying existing and non-existing `user_id` values.  
+- Implemented the `DELETE /api/transactions/:id` route to remove a transaction by its unique identifier.  
+- Added input validation to ensure the provided `id` is numeric, preventing server crashes from invalid parameters.  
+- Implemented edge case handling for non-existent transactions (returns 404).  
+- Verified successful deletion of transactions via Postman and confirmed database changes in Neon PostgreSQL.  
+
+---
+
 ## v0.3.0 - Create Transaction Route
 **Release Date**: October 20, 2025
 

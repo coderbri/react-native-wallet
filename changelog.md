@@ -1,5 +1,22 @@
 # React Native Wallet App - Changelog
 
+## v0.6.0 - Implemented Rate Limiting Middleware  
+**Release Date**: October 21, 2025  
+
+### Summary  
+- Introduced **Rate Limiting** to prevent excessive or abusive API requests that could overload the server.  
+- Configured **Upstash Redis** as a lightweight, serverless data store for managing rate limit counters.  
+- Created a `config/upstash.js` file to initialize the Redis instance and configure the rate limiter using the `@upstash/ratelimit` package.  
+- Implemented a middleware function in `middleware/rateLimiter.js` that limits API calls to **100 requests per minute** using the **sliding window algorithm**.  
+- Added global middleware integration in `server.js` to apply the rate limiter across all routes.  
+- Successfully tested rate limiting in Postman to confirm restricted access after exceeding the threshold.  
+- Updated `.env` file with new Upstash Redis credentials (`UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN`).  
+
+### Notes  
+This middleware ensures backend stability by mitigating spam or denial-of-service behaviors, such as repeated API refreshes. Though applied globally for simplicity, in production, rate limits would typically be user- or IP-specific.  
+
+---
+
 ## v0.5.0 - GET Summary Route
 **Release Date**: October 20, 2025
 

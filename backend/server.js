@@ -1,11 +1,14 @@
 import express from "express";
 import dotenv from "dotenv";
 import { sql } from "./config/db.js";
+import rateLimiter from "./middleware/rateLimiter.js";
 
 dotenv.config();
 
 const app = express();
 
+// Apply rate limiting before all routes
+app.use(rateLimiter);
 // Built-in middleware to parse incoming JSON payloads
 app.use(express.json());
 

@@ -1,5 +1,20 @@
 # React Native Wallet App - Changelog
 
+## v0.5.0 - GET Summary Route
+**Release Date**: October 20, 2025
+
+### Summary
+- Implemented the `GET /api/transactions/summary/:userId` route to provide users with a financial summary.  
+- Added SQL queries to calculate:
+  - **Total Balance** – the net sum of all transactions.
+  - **Total Income** – the sum of all positive (`amount > 0`) transactions.
+  - **Total Expenses** – the sum of all negative (`amount < 0`) transactions.
+- Utilized the `COALESCE()` SQL function to ensure `0` is returned instead of `null` when a user has no transactions.  
+- Implemented structured JSON responses containing the balance, income, and expenses.  
+- Verified endpoint functionality in Postman, confirming correct calculations and stable error handling.  
+
+---
+
 ## v0.4.0 - GET & DELETE Routes
 **Release Date**: October 20, 2025
 

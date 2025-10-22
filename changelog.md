@@ -1,5 +1,29 @@
 # React Native Wallet App - Changelog
 
+## v0.11.0 - Designing Authentication Pages
+**Release Date:** October 22, 2025
+
+### Summary
+- Designed and implemented custom **Sign-Up** and **Sign-In** pages for the authentication flow, improving the user experience beyond Clerk’s default UI.  
+- Introduced new **error-handling state management** with `useState` to display detailed validation messages for user actions such as incorrect passwords, duplicate emails, or invalid credentials.  
+- Updated imports to destructure `useState` directly from `react`, simplifying component syntax.  
+- Relocated the `styles` directory into the `assets/` folder for cleaner and more scalable project organization.  
+- Created a **responsive and polished UI** for authentication screens using `auth.styles.js`, featuring illustrations, icons, and consistent color theming.  
+- Added **KeyboardAwareScrollView** support to prevent the keyboard from overlapping text input fields during credential entry.  
+  - Installed the supporting dependency via `npm i react-native-keyboard-aware-scroll-view`.  
+- Enhanced user feedback with **Ionicons**, providing intuitive error visuals (e.g., warning and close icons).  
+- Implemented logic to handle:
+  - **Email verification step** after successful sign-up using Clerk’s `prepareEmailAddressVerification()` and `attemptEmailAddressVerification()`.  
+  - **Session activation** and **redirection** post-verification to the home screen.  
+- Extended error handling for `form_identifier_exists` and `form_password_incorrect` Clerk responses.  
+- Documented the overall authentication flow between `(auth)/_layout.jsx`, `(root)/_layout.jsx`, and authentication pages to illustrate routing and session logic.
+
+### Result
+All authentication screens — **Sign-Up**, **Sign-In**, and **Email Verification** — are now fully functional with error handling, keyboard-safe inputs, and responsive UI design.  
+The app provides a cohesive authentication experience that transitions smoothly between registration, verification, and login.
+
+---
+
 ## v0.10.0 - Authentication Setup with Clerk
 **Release Date:** October 22, 2025
 

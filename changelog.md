@@ -1,5 +1,26 @@
 # React Native Wallet App - Changelog
 
+## v0.7.0 - Codebase Modularization & Project Restructure
+**Release Date**: October 21, 2025
+
+### Summary
+- Refactored the backend for scalability by separating core logic into modular directories:
+  - **routes/** – manages all route definitions (`transactionsRoute.js`).
+  - **controllers/** – encapsulates business logic for transactions (`transactionsController.js`).
+  - **config/** – handles database connection and initialization (`db.js`).
+- Simplified route handling by registering `/api/transactions` once in `server.js` using Express middleware.
+- Introduced dedicated controller functions for CRUD operations and summary retrieval.
+- Added a root-level health check endpoint to verify backend status.
+- Moved database initialization logic (`initDB()`) into `config/db.js` for cleaner organization.
+- Updated backend folder structure under `src/` for production readiness.
+- Adjusted `package.json` to use the new entry point (`src/server.js`) with separate `dev` and `start` scripts.
+- Verified that all API endpoints continue functioning after restructuring.
+
+### Result
+The backend now follows a **clean, modular, and scalable architecture** that aligns with production best practices and simplifies future development.
+
+---
+
 ## v0.6.0 - Implemented Rate Limiting Middleware  
 **Release Date**: October 21, 2025  
 

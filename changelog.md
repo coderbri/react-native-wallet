@@ -1,5 +1,32 @@
 # React Native Wallet App - Changelog
 
+## v0.8.0 - Basic Setup with React Native
+**Release Date**: October 21, 2025
+
+### Summary
+- Initialized the **mobile frontend** using **React Native** with **Expo** as the development framework.  
+- Installed and configured Expo CLI using `npx create-expo-app@latest .` to generate the project scaffold.  
+- Verified successful app execution using both the **iOS Simulator** and **Expo Go** on mobile devices.  
+- Explained the relationship between **React Native** and **Expo**, noting that Expo extends React Native with additional tools and development utilities.  
+- Reviewed key similarities between **React** and **React Native**, including:
+  - Shared component structure but with mobile-specific tags (e.g., `<View>` and `<Text>`).  
+  - Styling via JavaScript objects using the `StyleSheet` API instead of CSS files.  
+  - Event handling differences such as `onPress` vs. `onClick`.  
+- Demonstrated how to preview the app via QR code scanning on a physical device under the same Wi-Fi network.  
+- Introduced navigation structure using **Expo Router**, covering:
+  - `_layout.tsx` for stack navigation setup.  
+  - Differences between **Stack** and **Tab** navigators.  
+- Built initial test screens (`index.tsx` and `about.jsx`) with navigation using `<Link href="...">`.  
+- Showed how to render both **remote** and **local images** using the `expo-image` component.  
+- Implemented clean styling with `StyleSheet.create()` for better code organization.  
+- Added explanations for `app.json` as the mobile configuration file and noted its relevance during deployment.  
+- Prepared the app for upcoming steps focusing on **styling** and **UI structuring**.  
+
+### Result
+The mobile application’s foundation is now successfully set up with **React Native + Expo**, providing a working simulator environment, navigation system, and initial page rendering — establishing a clear base for future UI and feature development.
+
+---
+
 ## v0.7.0 - Codebase Modularization & Project Restructure
 **Release Date**: October 21, 2025
 

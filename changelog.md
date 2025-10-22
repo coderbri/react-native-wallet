@@ -1,5 +1,26 @@
 # React Native Wallet App - Changelog
 
+## v0.9.0 - Setting Up Styles & Images
+**Release Date:** October 22, 2025
+
+### Summary
+- Organized the project’s frontend styling structure to prepare for consistent and scalable UI development.  
+- Created a **`styles/`** directory containing:  
+  - `auth.styles.js` for authentication-related pages.  
+  - `create.styles.js` for the Create screen.  
+  - `home.styles.js` for the Home screen.  
+- Added a **`constants/`** directory with `colors.js` defining the app’s theme colors for unified visual consistency.  
+- Implemented a **`lib/`** directory with `utils.js`, responsible for retrieving and formatting transaction dates from the database for display within the app.  
+- Uploaded app assets (icons, logos, etc.) into the **`assets/`** directory for centralized image management.  
+- Created a **`components/`** directory and added a reusable **`SafeScreen.jsx`** component to ensure app content stays within the **safe area view**, preventing overlap with device UI elements such as the status bar or camera notch.  
+- Wrapped the root `<Stack>` navigator in the `SafeScreen` component using the **`useSafeAreaInsets`** hook from `react-native-safe-area-context` (preinstalled with Expo).  
+- Improved app layout rendering by applying `flex` and `backgroundColor` styles to support dynamic scaling and consistent theming.  
+
+### Result
+The app now has a clean, modular styling foundation and a safe rendering structure, establishing a robust base for upcoming **authentication** and **UI implementation** phases.
+
+---
+
 ## v0.8.0 - Basic Setup with React Native
 **Release Date**: October 21, 2025
 

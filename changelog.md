@@ -1,5 +1,31 @@
 # React Native Wallet App - Changelog
 
+## v0.10.0 - Authentication Setup with Clerk
+**Release Date:** October 22, 2025
+
+### Summary
+- Implemented **Clerk authentication** integration on the frontend, connecting the Expo mobile app with Clerk’s secure user management system.  
+- Transferred the previously used Clerk API key from the backend to a new `.env` file in the `mobile/` directory for secure environment configuration.  
+- Installed and configured **@clerk/clerk-expo** to handle authentication flows within Expo Router.  
+- Wrapped the application in a global `<ClerkProvider>` to provide access to authentication context throughout the app.  
+- Added **token caching** support using **expo-secure-store** to persist session tokens securely and maintain user sessions across app restarts.  
+- Created a new **(auth)** route group containing the following screens and layout logic:  
+  - `sign-in.jsx` — Handles user login and session initialization.  
+  - `sign-up.jsx` — Handles account registration and email verification via Clerk.  
+  - `_layout.jsx` — Redirects authenticated users directly to the home route (`/`).  
+- Built a reusable **`SignOutButton.jsx`** component enabling secure user sign-out and redirection back to the authentication screen.  
+- Established a **(root)** route group for authenticated pages, including:  
+  - `index.jsx` — Displays user information and provides sign-out capability.  
+  - `_layout.jsx` — Restricts access to authenticated users, redirecting unauthenticated visitors to the sign-in page.  
+- Verified authentication flow from registration → verification → login → logout, ensuring smooth redirection and persistent session handling.  
+- Confirmed Clerk Dashboard reflects new users created during sign-up.
+
+### Result
+The app now has a fully functional **authentication system** integrated with Clerk, featuring secure token handling, conditional routing, and session persistence.  
+This foundation sets the stage for designing custom **authentication UI pages** and enhancing the overall user experience in the next phase.
+
+---
+
 ## v0.9.0 - Setting Up Styles & Images
 **Release Date:** October 22, 2025
 

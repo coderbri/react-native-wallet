@@ -1,5 +1,23 @@
 # React Native Wallet App - Changelog
 
+## v0.14.0 - Building the Home Screen
+**Release Date:** October 23, 2025
+
+### Summary
+- Implemented the **Home Screen UI** allowing users to view their financial summary and recent transactions.
+- Added a **loading indicator** (`PageLoader` component) for improved user experience during data fetch operations.
+- Built the **BalanceCard** component to display total balance, income, and expenses in a visually structured layout.
+- Integrated a **FlatList** for efficient rendering of recent transactions with individual `TransactionItem` components.
+- Created supporting components:
+  - `TransactionItem` – displays transaction details (category, amount, date, and icon).
+  - `NoTransactionsFound` – guides users to add a transaction when the list is empty.
+- Enhanced user experience with **pull-to-refresh** and **transaction deletion** confirmation dialogs.
+- Refined the **SignOutButton** to prompt confirmation before signing out.
+- Fixed an issue causing a **brief flicker** of the Sign-In screen by ensuring proper authentication state loading in `_layout.jsx`.
+- Prepared the project for the next stage: **building the Create Transaction Screen**.
+
+---
+
 ## v0.13.0 - Deploying Our API
 **Release Date:** October 23, 2025
 

@@ -1,5 +1,18 @@
 # React Native Wallet App - Changelog
 
+## v0.13.0 - Deploying Our API
+**Release Date:** October 23, 2025
+
+### Summary
+- Successfully deployed the backend API using **Render** and linked it with the React Native frontend.  
+- Configured Render settings including **Build Command** (`npm install`) and **Start Command** (`npm run start`), ensuring correct directory structure for the backend source.
+- Added environment variables for production deployment and replaced local API references with the Render-deployed endpoint.
+- Implemented a **cron job** to periodically ping the API every 14 minutes, preventing inactivity delays on the free tier.
+- Verified successful API connection and data retrieval through the frontend’s summary display.  
+- Fixed a **bug** where the API endpoints were misconfigured and not properly rendering the **GET summary** request, ensuring accurate data fetching post-deployment.
+
+---
+
 ## v0.12.0 - Building the useTransactions Hook
 **Release Date:** October 22, 2025
 

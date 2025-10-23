@@ -10,7 +10,7 @@ dotenv.config();
 
 const app = express();
 
-if (process.env.NODE_ENV==="production") (job.start());
+if (process.env.NODE_ENV==="production") job.start();
 
 // Apply rate limiting before all routes
 app.use(rateLimiter);
@@ -24,7 +24,6 @@ app.use(express.json());
 // });
 
 const PORT = process.env.PORT || 5001;
-
 
 // Health check endpoint
 app.get("/api/health", (req, res) => {

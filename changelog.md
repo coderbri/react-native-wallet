@@ -1,5 +1,30 @@
 # React Native Wallet App - Changelog
 
+## v0.12.0 - Building the useTransactions Hook
+**Release Date:** October 22, 2025
+
+### Summary
+- Implemented a **custom React hook** `useTransactions` to connect the frontend with the backend API and manage transaction data for the authenticated user.  
+- Added state management using `useState` for:
+  - `transactions` — stores all user transactions fetched from the backend.
+  - `summary` — tracks total balance, income, and expenses.
+  - `isLoading` — manages loading state for asynchronous operations.  
+- Utilized `useCallback` to memoize asynchronous functions for improved performance and dependency control.  
+- Implemented `fetchTransactions()` and `fetchSummary()` to retrieve data from `/transactions/:userId` and `/transactions/summary/:userId` endpoints.  
+- Combined both data-fetching functions into a unified `loadData()` function using `Promise.all()` for **parallel requests** and efficient loading.  
+- Added a `deleteTransaction()` function with error handling and user feedback via **React Native Alerts**, refreshing the UI after successful deletions.  
+- Integrated the hook into `mobile/app/(root)/index.jsx`, passing the **Clerk-authenticated `user.id`** to display real-time user-specific transaction and summary data.  
+- Tested API connectivity through console logs, confirming backend communication and data structure integrity.  
+- Documented environment adjustments for mobile testing:
+  - Explained `localhost` limitations when using physical devices.
+  - Provided workaround options using a **local IP address** or by **deploying the backend API**.  
+
+### Result
+The app now supports **real-time data fetching and deletion** from the backend API, establishing a functional bridge between the mobile frontend and server.  
+This lays the foundation for displaying a live financial dashboard in future updates once API deployment and transaction creation are implemented.
+
+---
+
 ## v0.11.0 - Designing Authentication Pages
 **Release Date:** October 22, 2025
 

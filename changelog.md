@@ -1,5 +1,32 @@
 # React Native Wallet App - Changelog
 
+## v0.15.0 - Create Transaction Screen Implementation
+**Release Date:** October 23, 2025
+
+### Summary
+- Implemented the **Create Transaction Screen** allowing users to add new income and expense entries through an intuitive form interface.
+- Built a complete transaction creation flow with real-time validation, category selection, and type toggling between expenses and income.
+- Created a **category grid system** featuring 7 predefined categories (Food & Drinks, Shopping, Transportation, Entertainment, Bills, Income, Other), each with custom Ionicons for visual clarity.
+- Implemented **smart amount formatting** logic that automatically converts expenses to negative values and income to positive values before submission.
+- Added comprehensive **form validation** to ensure title, amount, and category fields are properly filled before allowing submission.
+- Integrated **loading states** with disabled buttons and activity indicators during API requests to prevent duplicate submissions.
+- Built a **responsive UI** with:
+  - Header containing back navigation, screen title, and save button with loading feedback.
+  - Type selector toggle with visual feedback showing active expense/income mode.
+  - Large, prominent amount input with currency symbol and numeric keyboard.
+  - Title input field with icon decoration.
+  - Two-column category grid with active state highlighting.
+- Centralized API configuration by creating `constants/api.js` for easy environment switching between production (Render) and local development endpoints.
+- Updated `useTransactions` hook to import from the centralized API constant for consistency across the codebase.
+- Enhanced **Status Bar visibility** in the root layout by adding `<StatusBar style="dark" />` for improved UI polish.
+- Integrated with existing backend API using POST requests to `/transactions` endpoint with properly formatted JSON payload containing `user_id`, `title`, `amount`, and `category`.
+- Implemented **success/error feedback** using React Native Alerts and automatic navigation back to the home screen upon successful transaction creation.
+
+### Result
+Users can now seamlessly create new transactions through a polished, validated form interface. The screen provides clear visual feedback at every step, from category selection to submission, with proper error handling and loading states. The centralized API configuration simplifies deployment management across development and production environments.
+
+---
+
 ## v0.14.0 - Building the Home Screen
 **Release Date:** October 23, 2025
 
